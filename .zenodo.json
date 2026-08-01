@@ -1,0 +1,21 @@
+{
+  "title": "Athena: An External Reasoning Engine for Retrieval-Augmented Generation — Evaluation Harness and Results",
+  "description": "Evaluation harness, logic-tree builder, cached logic trees, per-query scores, and raw model outputs for thirteen pipeline configurations evaluated on the MultiHop-RAG benchmark. Supporting materials for the dissertation <i>Optimizing Retrieval-Augmented Generation (RAG) with an External Reasoning Engine for Enhanced Performance</i>, University of the Cumberlands, 2026.",
+  "upload_type": "software",
+  "license": "MIT",
+  "creators": [
+    {
+      "name": "Jhumkhawala, Milap",
+      "affiliation": "University of the Cumberlands"
+    }
+  ],
+  "keywords": [
+    "retrieval-augmented generation",
+    "multi-hop question answering",
+    "logic tree",
+    "argumentation",
+    "design science research",
+    "large language models"
+  ],
+  "access_right": "open"
+}

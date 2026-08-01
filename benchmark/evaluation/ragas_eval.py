@@ -16,7 +16,7 @@ def _get_ragas_llm() -> ChatOpenAI:
         openai_api_key=os.getenv("OPENROUTER_API_KEY"),
         openai_api_base=OPENROUTER_BASE_URL,
         default_headers={
-            "HTTP-Referer": "https://github.com/grayscope/athena",
+            "HTTP-Referer": "https://github.com/milapj/athena",
             "X-Title": "Athena Benchmark RAGAS",
         },
     )

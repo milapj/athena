@@ -142,6 +142,6 @@ async def main():
 
 if __name__ == "__main__":
     # If using Python 3.11+ or 3.10+ with the -m approach:
-    # cd /home/biokami/github/grayscope
-    # python -m src.grayscope.athena.main
+    # Run from the repository root:
+    # python -m benchmark.cli --dataset multihoprag --configs A1,B1
     asyncio.run(main())

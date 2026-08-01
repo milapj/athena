@@ -37,7 +37,7 @@ class OpenRouterModel(OpenAIModel):
             api_key=api_key or os.getenv("OPENROUTER_API_KEY"),
             base_url=OPENROUTER_BASE_URL,
             default_headers={
-                "HTTP-Referer": "https://github.com/grayscope/athena",
+                "HTTP-Referer": "https://github.com/milapj/athena",
                 "X-Title": "Athena Benchmark",
             },
         )
