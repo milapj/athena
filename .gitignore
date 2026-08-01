@@ -1,0 +1,31 @@
+# Environments and caches
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.DS_Store
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Uncompressed raw outputs. The gzipped equivalents are committed:
+# results/mh-a*/raw_results.jsonl.gz and results/mh-b/by_config/*.jsonl.gz
+results/**/raw_results.jsonl
+
+# Retrieval cache: 28 MB of duplicated passages from the public MultiHop-RAG
+# corpus; regenerate with the harness rather than storing.
+results/**/retrieval_cache/
+
+# Pilot and development runs not reported in the dissertation
+results/dev/
+results/multihop-dev/
+results/ragtruth-dev/
+results/rt-*/
+results/musr*/
+results/ragtruth/
+
+# Agent scratch state: contains nested git worktrees with no commits and a
+# stale duplicate of benchmark/
+.claude/

@@ -1,0 +1,8 @@
+Config,Model,Pipeline,Accuracy (%),Recall,Cost/Query ($),Avg Latency (s)
+A1,Llama-3.1-8B,RAG Only,59.9,0.448,$0.0002,4.9
+A2,Claude 3 Haiku,RAG Only,59.4,0.440,$0.0016,2.3
+A4,Claude Sonnet 4.6,RAG Only,65.3,0.500,$0.0060,5.5
+A3,GPT-5.4,RAG Only,78.3,0.618,$0.0085,1.9
+B1,Llama-3.1-8B,RAG + Tree,63.9,0.498,$0.0007,16.4
+C1,Llama-3.1-8B,Tree Only,38.6,0.240,$0.0005,1.5
+E1,Llama-3.1-8B,RAG + Fake Tree,62.7,0.482,$0.0002,2.8

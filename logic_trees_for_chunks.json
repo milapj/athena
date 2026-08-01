@@ -1,0 +1,295 @@
+{
+  "filename": "dataset/OTTOMAN TUBES PRIVATE LIMITED VS KARAN AUTOMOTIVES.pdf",
+  "total_chunks": 2,
+  "trees": [
+    {
+      "chunk_index": 1,
+      "chunk_text": "NATIONAL COMPANY LAW APPELLATE TRIBUNAL  \nPRINCIPAL BENCH, NEW DELHI  \nCompany Appeal  (AT) (Ins olvency) No. 787 of 202 5 \nIN THE MATTER OF:   \nOttoman Tubes Pvt. Ltd.       …App ellant \nVersus   \nKaran Automotives Pvt. Ltd.  …Respondent  \nPresent :  \nFor Appellant : Mr. Kushagra Goyal and Mr. Vibhu Anshuman, \nAdvocates.  \n   \nFor Respondent  : Mr. Sahil Yadav and Mr. Rishabh Arora, \nAdvocates.  \nO R D E R  \n(Hybrid  Mode)  \n22.05.2025 : Heard counsel for the appellant as well as counsel for the  \nrespondent.  \n2. This appeal has been filed against an order dated 24.05.2025 passed \nby the adjudicating authority (National Company Law Tribunal, New Delhi, \nCourt IV) by which I.A. No. 1872/ND/2025 ha s been rejected.  \n3. On 10.03.2025, the appellant/applicant was allowed three days time  to \nfile rejoinder affidavit.  Appellant’s case is that on 12.03.2025, the rejoinder \nwas filed, certain defects were marked which were cleared on 24.03.2025 and \nthe rejoinder was again refiled.  When the matter was taken on 28.03.2025 it \nwas not available on the e -filing portal hence the adjudicating authority closed \n \n \nComp. App. (AT) (Ins .) No. 787 of 202 5 \n2 of 3                                                                                     the right.  Appl icant  thereafter filed an I.A. praying for recall of the said order \nin which I.A. the impugned order has been passed.  \n4. Learned counsel for the appellant  submits that the appella nt has filed \nthe rejoinder affidavit  after serving the copy on the respondent which was filed \non 12.03.2025 i.e., within three days time as was allowed on 10.03.2025 .  \nSome defect was marked , which was cured and it was re -filed on 24.03.202 5 \nbut on the date when the matter was heard on 28.03.2025 it was not show ing \non e-filing portal.  \n5. It is submitted that the fact that rejoinder has been filed the appellant \nwithin the time , the said rejoinder ought to have been ta ken on record \nespecially when the copy was already ",
+      "logic_tree": {
+        "chance_of_or": 0.0,
+        "depth": 3,
+        "chance_to_prune": 0.3,
+        "chance_to_prune_all": 0.3,
+        "bf_factor": {
+          "1": 2.0,
+          "2": 1.0
+        },
+        "deduction_type_sample_rate": {
+          "syllogism": 1.0
+        },
+        "root_structure": [],
+        "nodes": [
+          {
+            "value": "root",
+            "children": [
+              {
+                "value": "  - **Fact From Story**: The appellant was allowed three days to file a rejoinder affidavit, which was initially filed on 12.03.2025, with defects subsequently cleared and refiled on 24.03.2025.",
+                "children": [
+                  {
+                    "value": ">   - **Fact From Story**: The appellant filed an I.A. praying for recall of the order where the right was closed.",
+                    "children": [
+                      {
+                        "value": "> - **Fact From Story**: The appellant, Ottoman Tubes Pvt. Ltd., filed the appeal against the order dated 24.05.2025 passed by the adjudicating authority. Because,",
+                        "children": [],
+                        "fact_type": "explicit",
+                        "operator": "or",
+                        "constraints": [],
+                        "deduction_type": null,
+                        "prunable": true,
+                        "can_be_leaf": true
+                      },
+                      {
+                        "value": "> > - **Commonsense Knowledge**: In legal proceedings, if a party is granted a specific timeline to submit documents and complies within that period, the documents are typically expected to be considered by the adjudicating authority. The appellant believed that their compliance within the given timeline should have resulted in the rejoinder being taken on record.",
+                        "children": [],
+                        "fact_type": "commonsense",
+                        "operator": "or",
+                        "constraints": [],
+                        "deduction_type": null,
+                        "prunable": false,
+                        "can_be_leaf": true
+                      }
+                    ],
+                    "fact_type": "explicit",
+                    "operator": "and",
+                    "constraints": [],
+                    "deduction_type": "syllogism",
+                    "prunable": true,
+                    "can_be_leaf": true
+                  },
+                  {
+                    "value": ">   - **Commonsense Knowledge**: Legal systems often have a mechanism for parties to request reconsideration or recall of decisions when procedural errors or oversights occur.",
+                    "children": [],
+                    "fact_type": "commonsense",
+                    "operator": "or",
+                    "constraints": [],
+                    "deduction_type": null,
+                    "prunable": false,
+                    "can_be_leaf": true
+                  }
+                ],
+                "fact_type": "explicit",
+                "operator": "and",
+                "constraints": [],
+                "deduction_type": "syllogism",
+                "prunable": true,
+                "can_be_leaf": true
+              },
+              {
+                "value": "  - **Fact From Story**: The appellant, Ottoman Tubes Pvt. Ltd., filed the appeal against the order dated 24.05.2025 passed by the adjudicating authority.",
+                "children": [
+                  {
+                    "value": "> > > > - **Fact From Story**: The appellant claims the rejoinder was filed on time initially on 12.03.2025 and then refiled on 24.03.2025 after clearing defects, but it was not acknowledged due to e-filing portal issues.  ",
+                    "children": [
+                      {
+                        "value": "> > > > > > - **Fact From Story**: The appellant claims the rejoinder was filed on time initially on 12.03.2025 and then refiled on 24.03.2025 after clearing defects, but it was not acknowledged due to e-filing portal issues. Because, ",
+                        "children": [],
+                        "fact_type": "explicit",
+                        "operator": "or",
+                        "constraints": [],
+                        "deduction_type": null,
+                        "prunable": true,
+                        "can_be_leaf": true
+                      },
+                      {
+                        "value": ">   - **Fact From Story**: The appellant, Ottoman Tubes Pvt. Ltd., filed the appeal against the order dated 24.05.2025 passed by the adjudicating authority. Because, ",
+                        "children": [],
+                        "fact_type": "explicit",
+                        "operator": "or",
+                        "constraints": [],
+                        "deduction_type": null,
+                        "prunable": true,
+                        "can_be_leaf": true
+                      },
+                      {
+                        "value": ">   - **Commonsense Knowledge**: In legal proceedings, if a party is granted a specific timeline to submit documents and complies within that period, the documents are typically expected to be considered by the adjudicating authority. | Commonsense Knowledge",
+                        "children": [],
+                        "fact_type": "commonsense",
+                        "operator": "or",
+                        "constraints": [],
+                        "deduction_type": null,
+                        "prunable": false,
+                        "can_be_leaf": true
+                      }
+                    ],
+                    "fact_type": "explicit",
+                    "operator": "and",
+                    "constraints": [],
+                    "deduction_type": "syllogism",
+                    "prunable": true,
+                    "can_be_leaf": true
+                  },
+                  {
+                    "value": "> > > > > - **Commonsense Knowledge**: Technical issues with e-filing systems can lead to misunderstandings or miscommunications regarding the status of filed documents, prompting parties to seek reconsideration of decisions based on procedural fairness.",
+                    "children": [],
+                    "fact_type": "commonsense",
+                    "operator": "or",
+                    "constraints": [],
+                    "deduction_type": null,
+                    "prunable": false,
+                    "can_be_leaf": true
+                  }
+                ],
+                "fact_type": "explicit",
+                "operator": "and",
+                "constraints": [],
+                "deduction_type": "syllogism",
+                "prunable": true,
+                "can_be_leaf": true
+              },
+              {
+                "value": "  - **Commonsense Knowledge**: In legal proceedings, if a party is granted a specific timeline to submit documents and complies within that period, the documents are typically expected to be considered by the adjudicating authority.",
+                "children": [],
+                "fact_type": "commonsense",
+                "operator": "or",
+                "constraints": [],
+                "deduction_type": null,
+                "prunable": false,
+                "can_be_leaf": true
+              }
+            ],
+            "fact_type": "explicit",
+            "operator": "and",
+            "constraints": [],
+            "deduction_type": null,
+            "prunable": true,
+            "can_be_leaf": false
+          }
+        ]
+      }
+    },
+    {
+      "chunk_index": 2,
+      "chunk_text": "served on the respondent and no \nprejudice was going to  be caused to the respondent.  \n6. We are of the view that in the facts of the present case when the \nrejoinder was filed within  the time allowed by the Cou rt even though it was \nnot show ing on the e -filing portal that was not a ground to reject the \napplication , whereas , in the application filed by the appellant a ll relevant facts \nalong with the dates have been stated and in the order impugned adjudicating \nauthority has not return ed any findings that date s of filing rejoinder given in \nthe application are not correct.  \n7. In view of the aforesaid we are of the view that rejoinder having been \nalready filed by the appellant , that may be taken on record and adjudicating  \nauthority may hear after taking the rejoinder on the record.  We make it clear \n \n \nComp. App. (AT) (Ins .) No. 787 of 202 5 \n3 of 3                                                                                     that we are not expressing any opinion on the merits of the case.  It is for the \nadjudicating authority to consider and take a decision.  \n Appeal disposed of accordingly.  \n \n[Justice Ashok Bhushan ] \nChairperson  \n \n \n[Barun Mitra]  \nMember (Technical)  \n \n \n[Arun Baroka]  \nMember (Technical)  \nhimanshu /nn \n",
+      "logic_tree": {
+        "chance_of_or": 0.0,
+        "depth": 3,
+        "chance_to_prune": 0.3,
+        "chance_to_prune_all": 0.3,
+        "bf_factor": {
+          "1": 2.0,
+          "2": 1.0
+        },
+        "deduction_type_sample_rate": {
+          "syllogism": 1.0
+        },
+        "root_structure": [],
+        "nodes": [
+          {
+            "value": "root",
+            "children": [
+              {
+                "value": "> Fact From Story: The appellant filed a rejoinder within the time allowed by the court, and it was not a valid ground for rejection even though it was not showing on the e-filing portal. The application includes all relevant facts and dates, which were not disputed by the adjudicating authority.  ",
+                "children": [
+                  {
+                    "value": "> > Fact From Story: There was no finding from the adjudicating authority disputing the correctness of the filing dates provided by the appellant.",
+                    "children": [
+                      {
+                        "value": "> > > > Fact From Story: The rejoinder was filed within the permissible timeframe, indicating compliance with court deadlines. Because,  ",
+                        "children": [],
+                        "fact_type": "explicit",
+                        "operator": "or",
+                        "constraints": [],
+                        "deduction_type": null,
+                        "prunable": true,
+                        "can_be_leaf": true
+                      },
+                      {
+                        "value": "> > > Commonsense Knowledge: Timely filing implies compliance with legal procedures and deadlines, ensuring that the appellant's rejoinder is considered valid despite technical issues. | Commonsense Knowledge",
+                        "children": [],
+                        "fact_type": "commonsense",
+                        "operator": "or",
+                        "constraints": [],
+                        "deduction_type": null,
+                        "prunable": false,
+                        "can_be_leaf": true
+                      }
+                    ],
+                    "fact_type": "explicit",
+                    "operator": "and",
+                    "constraints": [],
+                    "deduction_type": "syllogism",
+                    "prunable": true,
+                    "can_be_leaf": true
+                  },
+                  {
+                    "value": "> > Fact From Story: The rejoinder was filed within the permissible timeframe, indicating compliance with court deadlines.",
+                    "children": [
+                      {
+                        "value": "> > > Fact From Story: The adjudicating authority has not returned any findings that the dates of filing the rejoinder given in the application are not correct. This implies acceptance of the timeline presented by the appellant.",
+                        "children": [],
+                        "fact_type": "explicit",
+                        "operator": "or",
+                        "constraints": [],
+                        "deduction_type": null,
+                        "prunable": true,
+                        "can_be_leaf": true
+                      },
+                      {
+                        "value": "> > > Fact From Story: The adjudicating authority did not dispute the correctness of the filing dates provided by the appellant. Therefore, the application was complete and in order from a procedural standpoint.",
+                        "children": [],
+                        "fact_type": "explicit",
+                        "operator": "or",
+                        "constraints": [],
+                        "deduction_type": null,
+                        "prunable": true,
+                        "can_be_leaf": true
+                      },
+                      {
+                        "value": "> > > Commonsense Knowledge: In legal proceedings, if the adjudicating authority does not dispute the dates provided, it typically means that the timeline is accepted as accurate, supporting the argument that the rejoinder was filed on time.",
+                        "children": [],
+                        "fact_type": "commonsense",
+                        "operator": "or",
+                        "constraints": [],
+                        "deduction_type": null,
+                        "prunable": false,
+                        "can_be_leaf": true
+                      }
+                    ],
+                    "fact_type": "explicit",
+                    "operator": "and",
+                    "constraints": [],
+                    "deduction_type": "syllogism",
+                    "prunable": true,
+                    "can_be_leaf": true
+                  },
+                  {
+                    "value": "> > Commonsense Knowledge: Legal procedures often require timely filing of documents, and technical issues with e-filing should not prejudice the party if they complied with the deadline.",
+                    "children": [],
+                    "fact_type": "commonsense",
+                    "operator": "or",
+                    "constraints": [],
+                    "deduction_type": null,
+                    "prunable": false,
+                    "can_be_leaf": true
+                  }
+                ],
+                "fact_type": "explicit",
+                "operator": "and",
+                "constraints": [],
+                "deduction_type": "syllogism",
+                "prunable": true,
+                "can_be_leaf": true
+              },
+              {
+                "value": "> Commonsense Knowledge: Legal procedures often require timely filing of documents, and technical issues with e-filing should not prejudice the party if they complied with the deadline.",
+                "children": [],
+                "fact_type": "commonsense",
+                "operator": "or",
+                "constraints": [],
+                "deduction_type": null,
+                "prunable": false,
+                "can_be_leaf": true
+              }
+            ],
+            "fact_type": "explicit",
+            "operator": "and",
+            "constraints": [],
+            "deduction_type": null,
+            "prunable": true,
+            "can_be_leaf": false
+          }
+        ]
+      }
+    }
+  ]
+}

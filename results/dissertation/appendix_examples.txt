@@ -1,0 +1,248 @@
+APPENDIX: Representative Examples — B1 (RAG + Logic Tree) vs Baseline Configurations
+==========================================================================================
+Dataset: MultiHop-RAG (Tang & Yang, COLM 2024)
+Sample size: n = 1,701 identical questions across all configurations
+B1 configuration: Llama-3.1-8B + Entailment Logic Tree (built by Gemini Flash 2.0)
+
+Selection criteria: B1 answered correctly with a non-empty logic tree,
+while at least 3 of 4 baseline configurations answered incorrectly.
+
+------------------------------------------------------------------------------------------
+Example 1 of 5  |  multihop-1267  |  4/4 baselines incorrect
+------------------------------------------------------------------------------------------
+
+QUESTION:
+  Does the article from The Verge claim that Sam Bankman-Fried used FTX customer funds for a specific transaction, while the TechCrunch articles focus on the broader allegations of fraud and conspiracy against Sam Bankman-Fried without specifying the use of customer funds?
+
+GROUND TRUTH ANSWER: Yes
+
+LOGIC TREE (built from retrieved chunks by Gemini Flash 2.0):
+  root (Deduced Root Conclusion)
+  ├── Fact: "| Bankman-Fried co-founded crypto-trading firm Alameda Research in 2017."
+  ├── Fact: "| Sam Bankman-Fried, the founder of failed cryptocurrency exchange FTX, is on trial for seven counts of wire fraud and conspiracy."
+  │   ├── Fact: "| FTX was a fraud “from the start,” the Securities and Exchange Commission alleges — with a “multi-billion-dollar deficiency caused by his own misappr"
+  │   │   ├── Fact: "| The indictment also says that there were special features in FTX’s code that “permitted Alameda to spend and withdraw unlimited amounts of money fro"
+  │   │   ├── Fact: "| Bankman-Fried is facing seven counts of criminal charges: two counts of wire fraud, and five counts of conspiracy charges."
+  │   │   └── Commonsense: "| Misappropriating funds is illegal."
+  │   └── Commonsense: "| Fraud is a crime."
+  └── Commonsense: "| Trials are held to determine guilt or innocence."
+
+MODEL RESPONSES:
+
+  B1 — Llama-3.1-8B + Logic Tree (CORRECT):
+    Yes, that's correct. The article from The Verge specifically mentions that Bankman-Fried allegedly used "billions of dollars in misappropriated FTX customer deposits" to help buy real estate, make investments, repay Alameda's lenders, and make political contributions. In contrast, the TechCrunch articles focus on the broader allegations of fraud and conspiracy against Bankman-Fried, without specif
+
+  A1 — Llama-3.1-8B, RAG Only (INCORRECT):
+    No, the article from The Verge does not claim that Sam Bankman-Fried used FTX customer funds for a specific transaction. The TechCrunch articles also focus on the broader allegations of fraud and conspiracy against Sam Bankman-Fried, but they do mention specific examples of how he allegedly used customer funds, such as buying real estate and making investments for his own interest, and repaying Al
+
+  A2 — Claude 3 Haiku, RAG Only (INCORRECT):
+    No, the provided context does not contain an article from The Verge.
+
+  A4 — Claude Sonnet 4.6, RAG Only (INCORRECT):
+    Based on the provided context, this characterization is **not entirely accurate**.
+
+The **TechCrunch articles** actually do specify uses of customer funds, stating that Bankman-Fried is accused of using "billions of dollars in misappropriated FTX customer deposits" to purchase more than **$200 million of real estate**, make billions in personal investments, repay Alameda's lenders, and make more t
+
+  A3 — GPT-5.4, RAG Only (INCORRECT):
+    No.
+
+The Verge context does specifically discuss alleged use of FTX customer funds, including that Alameda spent FTX customer deposits and that Bankman-Fried allegedly used misappropriated customer deposits for investments, loan repayments, real estate, and political contributions.
+
+The TechCrunch context is broader about the trial and charges, but it also mentions customer funds in places—for exa
+
+  ANALYSIS: The logic tree extracted key facts from retrieved chunks and
+  structured them into an entailment chain. This enabled B1 (Llama-3.1-8B)
+  to synthesize evidence across multiple sources and commit to the correct
+  answer, while 4/4 baseline configurations either refused to
+  answer or reached an incorrect conclusion from the same retrieved chunks.
+
+------------------------------------------------------------------------------------------
+Example 2 of 5  |  multihop-318  |  3/4 baselines incorrect
+------------------------------------------------------------------------------------------
+
+QUESTION:
+  Do the 'Eos: Earth And Space Science News' researchers and 'Music Business Worldwide' regarding "AfroFuture's attendees" both indicate a trend in the diversity of their respective subjects, with the former discussing the disparity of income and race over time in 177 cities and the latter discussing the demographics and geographic diversity of the event's audience?
+
+GROUND TRUTH ANSWER: Yes
+
+LOGIC TREE (built from retrieved chunks by Gemini Flash 2.0):
+  root (Deduced Root Conclusion)
+  ├── Fact: "Our brand resonates with the global Black diaspora, and we’ve received significant support from the United States, the United Kingdom, the Caribbean a"
+  ├── Fact: "AfroFuture is a global platform that invites people from all over the world, and is an event for those who enjoy the intersection of music, food, fash"
+  │   ├── Fact: "AfroFuture is a global platform that invites people from all over the world, and is an event for those who enjoy the intersection of music, food, fash"
+  │   │   ├── Fact: "Our brand resonates with the global Black diaspora, and we’ve received significant support from the United States, the United Kingdom, the Caribbean a"
+  │   │   ├── Fact: "About 45% of our audience attends the Festival from North America, 13% from Europe and Asia and about 12% come from African countries outside of Ghana"
+  │   │   └── Commonsense: "If people from different countries outside of Africa attend an event, then the event is global."
+  │   └── Commonsense: "A platform that invites people from all over the world is a global platform."
+  └── Commonsense: "A platform that invites people from all over the world is a global platform."
+
+MODEL RESPONSES:
+
+  B1 — Llama-3.1-8B + Logic Tree (CORRECT):
+    Yes, both the 'Eos: Earth And Space Science News' researchers and 'Music Business Worldwide' regarding "AfroFuture's attendees" indicate a trend in the diversity of their respective subjects.
+
+The 'Eos: Earth And Space Science News' researchers discuss the disparity of income and race over time in 177 cities, which suggests a trend in the diversity of the population in those cities.
+
+The 'Music Bu
+
+  A1 — Llama-3.1-8B, RAG Only (INCORRECT):
+    No, the two sources do not indicate a trend in the diversity of their respective subjects. The 'Eos: Earth And Space Science News' researchers are discussing a trend in income and racial disparity over time in 177 cities, which is unrelated to the demographics and geographic diversity of AfroFuture's audience. The 'Music Business Worldwide' article discusses the demographics and geographic diversi
+
+  A2 — Claude 3 Haiku, RAG Only (INCORRECT):
+    No, the context does not mention 'Eos: Earth And Space Science News' researchers, and the discussion about AfroFuture's attendees in the provided context only pertains to the demographics and geographic diversity of the event's audience, as reported by Music Business Worldwide.
+
+  A4 — Claude Sonnet 4.6, RAG Only (INCORRECT):
+    Based on the provided context, I can only speak to the **Music Business Worldwide** article regarding AfroFuture's attendees. The article does indicate demographic and geographic diversity, noting that attendees represent **over 40 countries**, with approximately 45% from North America, 13% from Europe and Asia, and 12% from African countries outside Ghana and South Africa, describing them as "upw
+
+  A3 — GPT-5.4, RAG Only (CORRECT):
+    Yes. The context says the Eos researchers discuss disparities in income and race over time across 177 cities, while Music Business Worldwide says AfroFuture’s audience is geographically diverse, drawing attendees from over 40 countries, including North America, Europe, Asia, and African countries outside Ghana and South Africa. Both indicate diversity-related trends in their respective subjects.
+
+  ANALYSIS: The logic tree extracted key facts from retrieved chunks and
+  structured them into an entailment chain. This enabled B1 (Llama-3.1-8B)
+  to synthesize evidence across multiple sources and commit to the correct
+  answer, while 3/4 baseline configurations either refused to
+  answer or reached an incorrect conclusion from the same retrieved chunks.
+
+------------------------------------------------------------------------------------------
+Example 3 of 5  |  multihop-352  |  3/4 baselines incorrect
+------------------------------------------------------------------------------------------
+
+QUESTION:
+  Does the article from The Guardian suggest that Britney Spears had less control over her privacy at the age of 16 compared to the control over privacy that the BBC News - Entertainment & Arts article implies Taylor Swift has over her personal experiences?
+
+GROUND TRUTH ANSWER: Yes
+
+LOGIC TREE (built from retrieved chunks by Gemini Flash 2.0):
+  root (Deduced Root Conclusion)
+  ├── Fact: "As the restrictions get tighter, Britney acts out – and ends up legally denied her freedom for 13 years, under a conservatorship controlled by her fat"
+  └── Commonsense: "A conservatorship takes away a person's freedom."
+
+MODEL RESPONSES:
+
+  B1 — Llama-3.1-8B + Logic Tree (CORRECT):
+    Yes, the article from The Guardian suggests that Britney Spears had less control over her privacy at the age of 16 compared to the control over privacy that the BBC News - Entertainment & Arts article implies Taylor Swift has over her personal experiences.
+
+Reasoning Tree:
+
+root | Deduced Root Conclusion
+> > Fact From Story: Britney's body was made "fair game" at the age of 16, with the media scru
+
+  A1 — Llama-3.1-8B, RAG Only (INCORRECT):
+    The article does not directly compare Britney Spears' control over her privacy to Taylor Swift's control over her personal experiences. However, it does suggest that Britney Spears had less control over her life and body at the age of 16, as she was subject to intense media scrutiny and her father's control, which included monitoring her diet and exercise routine, as well as her relationships and 
+
+  A2 — Claude 3 Haiku, RAG Only (INCORRECT):
+    The article does not mention Taylor Swift or the BBC News - Entertainment & Arts article, so it is not possible to make a direct comparison between Britney Spears' control over her privacy at 16 and Taylor Swift's control over her personal experiences. However, the article does suggest that Britney Spears had very little control over her privacy at 16, with the media scrutinizing her body and spec
+
+  A4 — Claude Sonnet 4.6, RAG Only (INCORRECT):
+    Based on the provided context, I can only partially answer this question. The article clearly describes Britney Spears having **virtually no control over her privacy at 16** — she was mobbed publicly, had her body scrutinized and commented upon by talk show hosts, was marketed as a virgin without apparent consent, and had her physical development treated as public property.
+
+However, **there is no
+
+  A3 — GPT-5.4, RAG Only (CORRECT):
+    Yes. The Guardian article suggests Britney Spears had very little control over her privacy at 16: she was “public property,” couldn’t go outside without being mobbed, and faced intrusive scrutiny about her body and sexuality. By contrast, the BBC framing about Taylor Swift’s personal experiences implies she has more agency over how those experiences are used or presented.
+
+  ANALYSIS: The logic tree extracted key facts from retrieved chunks and
+  structured them into an entailment chain. This enabled B1 (Llama-3.1-8B)
+  to synthesize evidence across multiple sources and commit to the correct
+  answer, while 3/4 baseline configurations either refused to
+  answer or reached an incorrect conclusion from the same retrieved chunks.
+
+------------------------------------------------------------------------------------------
+Example 4 of 5  |  multihop-459  |  3/4 baselines incorrect
+------------------------------------------------------------------------------------------
+
+QUESTION:
+  Does 'The Guardian' article suggest that Manchester United's commercial operation is less successful than Manchester City's, while the 'Sporting News' article indicates that Manchester United's performance in European competitions is inferior to expectations?
+
+GROUND TRUTH ANSWER: Yes
+
+LOGIC TREE (built from retrieved chunks by Gemini Flash 2.0):
+  root (Deduced Root Conclusion)
+  ├── Fact: "Erik ten Hag's side have once again dropped points from a winning position as they drew 3-3 with Galatasaray in the Champions League, a damaging resul"
+  │   ├── Fact: "United now have to beat Bayern Munich and hope Galatasaray draw with FC Copenhagen on the final matchday to progress."
+  │   └── Commonsense: "A team needs to win games to progress in a tournament."
+  └── Commonsense: "Drawing a game instead of winning it means not improving the team's position in the standings."
+
+MODEL RESPONSES:
+
+  B1 — Llama-3.1-8B + Logic Tree (CORRECT):
+    Yes, according to the context and reasoning tree, the article suggests that Manchester United's commercial operation is less successful than Manchester City's, as the Glazers' quasi-absentee proprietorship has led to the neglect of Old Trafford and the training ground, while Ratcliffe's investment is seen as insufficient. 
+
+Regarding European competitions, the article states that Manchester United
+
+  A1 — Llama-3.1-8B, RAG Only (INCORRECT):
+    The Guardian article does not suggest that Manchester United's commercial operation is less successful than Manchester City's. In fact, it states that Manchester United's revenue-based model is "impressive" and makes the club "akin to a cash machine". 
+
+The article does mention that the Glazers' investment in the club's infrastructure is inadequate, but this is a separate issue from the commercial
+
+  A2 — Claude 3 Haiku, RAG Only (INCORRECT):
+    No, the provided context does not contain an article from 'The Guardian' or 'Sporting News' that makes a direct comparison between Manchester United's and Manchester City's commercial operations or European performances.
+
+  A4 — Claude Sonnet 4.6, RAG Only (INCORRECT):
+    Based on the provided context, I can only partially address this question.
+
+**Regarding the commercial operation comparison**, the Guardian article does state that Manchester City has a "commercial operation that leaves Ratcliffe's new concern light years behind," clearly suggesting United's commercial operation is less successful than City's.
+
+**Regarding the "Sporting News" article**, the contex
+
+  A3 — GPT-5.4, RAG Only (CORRECT):
+    Yes.
+
+- The Guardian excerpt says Manchester City are “a vastly better-run football operation” but also notes United remain “a far larger commercial operation,” so it does not suggest United’s commercial operation is less successful than City’s.
+- The Sporting News-style excerpt does indicate United’s European performances are below expectations, describing them as “not enough,” highlighting dropp
+
+  ANALYSIS: The logic tree extracted key facts from retrieved chunks and
+  structured them into an entailment chain. This enabled B1 (Llama-3.1-8B)
+  to synthesize evidence across multiple sources and commit to the correct
+  answer, while 3/4 baseline configurations either refused to
+  answer or reached an incorrect conclusion from the same retrieved chunks.
+
+------------------------------------------------------------------------------------------
+Example 5 of 5  |  multihop-1354  |  3/4 baselines incorrect
+------------------------------------------------------------------------------------------
+
+QUESTION:
+  Does the Engadget review naming the Apple Watch SE as the best smartwatch for the money suggest a different aspect of smartwatch functionality compared to The Verge's focus on the independence of smartwatches from phones, specifically regarding the Apple Watch's double tap gesture?
+
+GROUND TRUTH ANSWER: Yes
+
+LOGIC TREE (built from retrieved chunks by Gemini Flash 2.0):
+  root (Deduced Root Conclusion)
+  ├── Fact: "The new Apple Watch Series 9 has dropped to $329 at Amazon, Walmart and Target in a Black Friday deal."
+  │   ├── Fact: "That’s $70 off its usual price and the lowest we’ve seen since it debuted in September."
+  │   │   ├── Fact: "The big change this time around is a new SiP (system in package) chip that allows for a Double Tap feature that lets you tap your thumb and forefinger"
+  │   │   ├── Fact: "The Series 9 took the crown of the best smartwatch you can get right now in our guide thanks to its new S9 SiP that brings slightly speedier performan"
+  │   │   └── Commonsense: "The Apple Watch Series 9 is a desirable product."
+  │   └── Commonsense: "A lower price is a deal."
+  └── Commonsense: "Black Friday deals usually offer products at discounted prices."
+
+MODEL RESPONSES:
+
+  B1 — Llama-3.1-8B + Logic Tree (CORRECT):
+    Yes, the Engadget review naming the Apple Watch SE as the best smartwatch for the money suggests a different aspect of smartwatch functionality compared to The Verge's focus on the independence of smartwatches from phones, specifically regarding the Apple Watch's double tap gesture.
+
+  A1 — Llama-3.1-8B, RAG Only (INCORRECT):
+    There is no information in the provided context that suggests the Engadget review naming the Apple Watch SE as the best smartwatch for the money implies a different aspect of smartwatch functionality compared to The Verge's focus on the independence of smartwatches from phones, specifically regarding the Apple Watch's double tap gesture.
+
+  A2 — Claude 3 Haiku, RAG Only (INCORRECT):
+    No, the context does not provide enough information to determine if the Engadget review suggests a different aspect of smartwatch functionality compared to The Verge's focus.
+
+  A4 — Claude Sonnet 4.6, RAG Only (INCORRECT):
+    Based on the provided context, I cannot fully answer this question as posed. The context does not contain an **Engadget review** of the Apple Watch SE — the references to the SE being called "the best smartwatch money can buy" appear to come from **The Verge's own coverage**, not Engadget.
+
+What the context does support is a partial comparison:
+
+- **The Verge's coverage** focuses heavily on the **
+
+  A3 — GPT-5.4, RAG Only (CORRECT):
+    Yes. Based on the context, Engadget’s praise for the Apple Watch SE as “the best smartwatch money can buy” emphasizes value, overall fitness features, notifications, and iPhone integration. By contrast, The Verge’s discussion of the Apple Watch’s double tap gesture focuses on hands-free interaction and making the watch more independently usable without needing to touch the screen or use the other 
+
+  ANALYSIS: The logic tree extracted key facts from retrieved chunks and
+  structured them into an entailment chain. This enabled B1 (Llama-3.1-8B)
+  to synthesize evidence across multiple sources and commit to the correct
+  answer, while 3/4 baseline configurations either refused to
+  answer or reached an incorrect conclusion from the same retrieved chunks.
+
+==========================================================================================
+END OF APPENDIX
+==========================================================================================
